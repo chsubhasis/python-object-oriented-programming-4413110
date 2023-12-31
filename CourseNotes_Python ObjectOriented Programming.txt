@@ -1,0 +1,109 @@
+Course Title: Python Object-Oriented Programming
+
+Description: The object-oriented programming (OOP) features in Python make it easier to build programs of increasing complexity and modularity. In this course with instructor Joe Marini, learn how to apply core OOP principles to build programs that are extensible and efficient. Joe starts with the basics of defining and using classes and objects. Then he moves into more advanced features like abstract base classes and how to implement interfaces. He also details some of the more unique features of Python, like magic class methods to make your classes integrate tightly with the Python language and data classes to dramatically reduce the amount of boilerplate code needed to build data-centric objects.
+
+
+***********************************************
+Chapter: 1. Object-Oriented Python
+***********************************************
+
+
+-----------------------------------------------
+Video: Instance methods and attributes
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:03            __init__() is not really constructor like java. This is initializor. Object already created when this func is called. When a func is called on an object, the object itself is automatically passed as first arg (self). 
+
+0:06:06            underscore before a method or attribute indicates that is intended for using only within that class, and not outside. If double underscrore used, you will get error id you try to access that outside the class. 
+
+
+-----------------------------------------------
+Video: Class methods and members
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:38            @staticmethod - static methods do not receive class or instance arguments and usually operate on data that is not instance-specific. @classmethod - class methods receive a class as their argument and can only operate on class-level data 
+
+
+***********************************************
+Chapter: 2. Inheritance and Composition
+***********************************************
+
+
+-----------------------------------------------
+Video: Abstract base classes
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:01            ABC= abstract base class. from abc import ABC, abstractmethod.. class GraphicShape(ABC): 
+
+
+-----------------------------------------------
+Video: Using multiple inheritance
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:01            Multiple inheritance allowed in python, unlike java. Problem happens if each of the superclasses contain same attribute name. Method resolution order is maintained. Classname.__mro__ contains method res order. That means, in the case of multiple inheritance, if two base classes have methods with the same name, and a derived class calls this method, the method of the first base class listed in the inheritance chain will be executed. 
+
+
+-----------------------------------------------
+Video: Interfaces
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:04:26            Python doesnt have explicit lang support for interface (unlike java). This is acheieved by abstract base classes and multiple inheritance together. 
+
+
+***********************************************
+Chapter: 3. "Magic" Object Methods
+***********************************************
+
+
+-----------------------------------------------
+Video: String representation
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:03            Magic methods - Python automatically associates with every class defn. Like __str__, __repr__, __ge__, __lt__, and __eq__. Repr used for debugging. 
+
+
+-----------------------------------------------
+Video: Equality and comparison
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:08:28            To print collection in python: books = [b1, b3, b2, b4]
+print([book.title for book in books]) 
+
+
+-----------------------------------------------
+Video: Callable objects
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:38            The __call__ method can be used to call the object like a function. Use this if the attribute of an object changed frequently. 
+
+0:01:44            Java is a statically typed language, which means that the type of a variable is known at compile time. Python is dynamically typed, which means that the type of a variable is determined at runtime.  
+
+
+***********************************************
+Chapter: 4. Data Classes
+***********************************************
+
+
+-----------------------------------------------
+Video: Using post initialization
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:00:42            @dataclass is like a POJO with attributes. __init__ is not needed explicitly. __post_init__(self) can be used for customization post initialization. The __post_init__ function lets us customize additional properties after the object has been initialized via built-in __init__. 
+
+
+-----------------------------------------------
+Video: Immutable data classes
+-----------------------------------------------
+Note Time:         Note Text:                     
+
+0:01:30            @dataclass(frozen=True)  # "The "frozen" parameter makes the class immutable. 
+
