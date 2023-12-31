@@ -1,5 +1,7 @@
 # Python Object Oriented Programming by Joe Marini course example
 # Programming challenge: use inheritance and abstract classes
+from abc import abstractmethod
+
 
 # Challenge: create a class structure to represent stocks and bonds
 # Requirements:
@@ -12,21 +14,44 @@
 # For stocks: "Ticker: Company -- $Price"
 # For bonds: "description: duration'yr' : $price : yieldamt%"
 
-class Asset():
-    pass
+class Asset:
 
-class Stock():
-    pass
+    def __init__(self, price):
+        self.price = price
 
-class Bond():
-    pass
+    @abstractmethod
+    def get_description(self):
+        pass
+
+
+class Stock(Asset):
+
+    def __init__(self, ticker, price, company):
+        super().__init__(price)
+        self.ticker = ticker
+        self.company = company
+
+    def get_description(self):
+        return f"{self.ticker}: {self.company} -- ${self.price}"
+
+
+class Bond(Asset):
+
+    def __init__(self, price, description, duration, yieldData):
+        super().__init__(price)
+        self.description = description
+        self.duration = duration
+        self.yieldData = yieldData
+
+    def get_description(self):
+        return f"{self.description}: {self.duration}yr : ${self.price} : {self.yieldData}%"
 
 
 # ~~~~~~~~~ TEST CODE ~~~~~~~~~
 try:
-   ast = Asset(100.0)
+    ast = Asset(100.0)
 except:
-   print("Can't instantiate Asset!")
+    print("Can't instantiate Asset!")
 
 msft = Stock("MSFT", 342.0, "Microsoft Corp")
 goog = Stock("GOOG", 135.0, "Google Inc")
